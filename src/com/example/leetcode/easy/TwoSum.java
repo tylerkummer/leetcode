@@ -3,21 +3,20 @@ package com.example.leetcode.easy;
 public class TwoSum
 {
     public int[] twoSum(int[] nums, int target) {
-        // Create an index of 0
-        int i = 0;
-        // Create a for loop that goes through the next element
-        for(int j = i + 1; j < nums.length; j++){
-            // Check if the element of j is target subtracted from index i
-            if(nums[j] == target - nums[i]){
-                // If it is then return a new array containing i and j
-                return new int[] {i, j};
-            } else{
-                // If not then cycle to the next element of i
-                i += 1;
+        // Create a for loop to cycle through the nums array
+        for (int i = 0; i < nums.length; i++) {
+            // Create a second for loop to cycle through the next element of the nums array
+            for (int j = i + 1; j < nums.length; j++) {
+                // Check if nums of j is the same as target minus nums of i
+                if (nums[j] == target - nums[i]) {
+                    // If that is the case then return a new array of i and j
+                    return new int[] { i, j };
+                }
             }
         }
-        // Return this message if nothing passes, will allow user to return a string instead of an array of nums
-        throw new IllegalArgumentException("No Match");
+
+        // Else return a message saying a solution could not be found.
+        throw new IllegalArgumentException("No two sum solution");
     }
 }
 
